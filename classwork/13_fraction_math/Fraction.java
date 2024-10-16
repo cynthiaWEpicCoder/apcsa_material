@@ -12,7 +12,7 @@ public class Fraction
 	* @return numerator
 	*/
 	public int getNumerator() {
-	
+		return numerator; 
 	}
 
 	/**
@@ -20,6 +20,7 @@ public class Fraction
 	* @param numerator new numerator value
 	*/
 	public void setNumerator(int numerator) {
+		this.numerator = numerator;
 	
 	}
 
@@ -28,7 +29,7 @@ public class Fraction
 	* @return denominator
 	*/
 	public int getDenominator() {
-		
+		return denominator;
 	}
 
 	/**
@@ -36,7 +37,7 @@ public class Fraction
 	* @param denominator new denominator
 	*/
 	public void setDenominator(int denominator) {
-	
+		this.denominator = denominator;
 	}
 
     /**
@@ -47,7 +48,9 @@ public class Fraction
     //Calculate by using the FractionMath class, then update
     //the numerator and denominator from the returned Fraction
     public void addFraction(Fraction other){
-       
+	    numerator = other.getNumerator();
+	    denominator = other.getDenominator();
+	    
     }
 
     /**
@@ -58,7 +61,8 @@ public class Fraction
     //Calculate by using the FractionMath class, then update
     //the numerator and denominator from the returned Fraction
     public void multiplyFraction(Fraction other){
-       
+	    numerator = FractionMath.multiply(this, other).getNumerator();
+	    denominator = FractionMath.multiply(this, other).getDenominator();
     }
 
     /**
@@ -67,6 +71,6 @@ public class Fraction
 	*/
 
     public String toString(){
-        
+        System.out.println("" + this.getNumerator() + " / " + this.getDenominator());
     }
 }
